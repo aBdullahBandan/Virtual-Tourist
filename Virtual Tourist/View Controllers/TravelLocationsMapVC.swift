@@ -141,8 +141,9 @@ extension TravelLocationsMapVC: MKMapViewDelegate{
             // use the zoom level to compute the region
 
             //self.mapvView.setz
-            self.mapvView.setRegion(region, animated: true)
-
+            if(region.center.latitude != 0.0){
+                self.mapvView.setRegion(region, animated: true)
+            }
 
         }else{
         UserDefaults.standard.set(mapView.centerCoordinate.latitude.magnitude, forKey: "centerLat")
